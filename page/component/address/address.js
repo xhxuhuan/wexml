@@ -6,22 +6,6 @@ Component({
     detail:'',
     publicAddress: ''
   },
-<<<<<<< HEAD
-  onLoad(){
-    var self = this;
-    wx.showShareMenu({
-      success: (res) => {
-        withShareTicket:true
-        console.log(res)
-      },
-    })
-    
-    wx.getStorage({
-      key: 'address',
-      success: function(res){
-        self.setData({
-          address : res.data
-=======
   methods: {
     onLoad(){
       var self = this;
@@ -46,7 +30,6 @@ Component({
           title:'提示',
           content:'请填写完整资料',
           showCancel:false
->>>>>>> b0db0628c24f4b52ddbe823cabe128b6216ecdc3
         })
       }
     },

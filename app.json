@@ -50,11 +50,6 @@
       }
     ]
   },
-  "permission":{
-    "scope.userLocation":{
-      "desc":"你的位置信息用于展示"
-    }
-  },
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,

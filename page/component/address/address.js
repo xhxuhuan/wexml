@@ -1,4 +1,5 @@
 // page/component/new-pages/user/address/address.js
+var qqsdk = require("../../qqmap-wx-jssdk.js")
 Component({
   data:{
     name:'',
@@ -9,6 +10,25 @@ Component({
   methods: {
     onLoad(){
       var self = this;
+      var qqMap = new qqsdk({
+        key:"TELBZ-2F7WJ-DHOFQ-KLP5G-GGI6Z-U6FA5"
+      });
+      wx.getLocation({
+        success:function(res){
+          console.log(res);
+          var latitude = res.latitude;
+          var longtitude = res.longtitude;
+          qqMap.reverseGeocoder({
+            location: {
+              latitude,
+              longtitude
+            },
+            success:function(res){
+              console.log(res)
+            }
+          })
+        }
+      })
     },
     formSubmit(){
       console.log(this.data)

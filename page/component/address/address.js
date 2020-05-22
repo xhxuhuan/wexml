@@ -72,7 +72,7 @@ Component({
       })
     },
     bindValue(e) {
-      let key = e.target.dataset.name
+      let key = e.currentTarget.dataset.name
       this.setData({
         [key] : e.detail.value
       })

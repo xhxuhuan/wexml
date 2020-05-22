@@ -47,9 +47,15 @@ Page({
     wx.getStorage({
       key: 'address',
       success: function(res){
+        console.log(res)
         self.setData({
           hasAddress: true,
-          address: res.data
+          address:  {
+            name:res.data.name,
+            phone:res.data.phone,
+            publicAddress:res.data.publicAddress,
+            detail:res.data.detail
+          }
         })
       }
     })

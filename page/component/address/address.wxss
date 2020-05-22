@@ -14,3 +14,20 @@
 .form-box button{
     margin:30rpx 30rpx 0 0;
 }
+
+.dingwei {
+    height: 90rpx;
+    line-height: 90rpx;
+    position: relative;
+}
+
+.dingwei input {
+    padding-left: 50rpx;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0;
+    top: 20rpx;
+    display: inline;
+}

@@ -1,5 +1,5 @@
 // page/component/new-pages/user/address/address.js
-var qqsdk = require("../../qqmap-wx-jssdk.js")
+var qqsdk = require("../../../qqmap-wx-jssdk.js")
 Component({
   data:{
     name:'',
@@ -17,14 +17,15 @@ Component({
         success:function(res){
           console.log(res);
           var latitude = res.latitude;
-          var longtitude = res.longtitude;
+          var longitude = res.longitude;
           qqMap.reverseGeocoder({
             location: {
               latitude,
-              longtitude
+              longitude
             },
             success:function(res){
               console.log(res)
+              self.setData({publicAddress : res.result.address})
             }
           })
         }

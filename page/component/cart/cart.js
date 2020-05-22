@@ -9,6 +9,14 @@ Page({
         name:"hello"
     }
   },
+  onLoad(){
+    wx.showShareMenu({
+      success: (res) => {
+        withShareTicket:true
+        console.log(res)
+      },
+    })
+  },
   onShow() {
     this.setData({
       hasList: true,

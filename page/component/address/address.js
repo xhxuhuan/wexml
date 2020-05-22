@@ -9,6 +9,12 @@ Page({
   },
   onLoad(){
     var self = this;
+    wx.showShareMenu({
+      success: (res) => {
+        withShareTicket:true
+        console.log(res)
+      },
+    })
     
     wx.getStorage({
       key: 'address',

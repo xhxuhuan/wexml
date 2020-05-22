@@ -13,7 +13,14 @@ Page({
   onReady() {
     this.getTotalPrice();
   },
-  
+  onLoad(){
+    wx.showShareMenu({
+      success: (res) => {
+        withShareTicket:true
+        console.log(res)
+      },
+    })
+  },
   onShow:function(){
     const self = this;
     wx.getStorage({

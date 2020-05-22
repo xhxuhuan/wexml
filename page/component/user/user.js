@@ -8,6 +8,12 @@ Page({
     address:{}
   },
   onLoad(){
+    wx.showShareMenu({
+      success: (res) => {
+        withShareTicket:true
+        console.log(res)
+      },
+    })
     var self = this;
     /**
      * 获取用户信息

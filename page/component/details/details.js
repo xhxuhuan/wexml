@@ -18,7 +18,14 @@ Page({
     show: false,
     scaleCart: false
   },
-
+  onLoad(){
+    wx.showShareMenu({
+      success: (res) => {
+        withShareTicket:true
+        console.log(res)
+      },
+    })
+  },
   addCount() {
     let num = this.data.num;
     num++;

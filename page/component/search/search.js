@@ -74,6 +74,12 @@ Page({
         });
     },
     onLoad() {
+        wx.showShareMenu({
+            success: (res) => {
+              withShareTicket:true
+              console.log(res)
+            },
+          })
         const history = wx.getStorageSync('history');
         if (history) {
             this.setData({

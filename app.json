@@ -11,6 +11,7 @@
     "page/component/search/search"
   ],
   "window": {
+    "withShareTicket":true,
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "零食商贩",
     "navigationBarBackgroundColor": "#AB956D",
@@ -48,6 +49,11 @@
         "text": "我的"
       }
     ]
+  },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"你的位置信息用于展示"
+    }
   },
   "networkTimeout": {
     "request": 10000,

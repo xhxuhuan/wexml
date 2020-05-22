@@ -25,6 +25,14 @@ Page({
         });
         
     },
+    onLoad(){
+      wx.showShareMenu({
+        success: (res) => {
+          withShareTicket:true
+          console.log(res)
+        },
+      })
+    },
     switchTab(e){
       const self = this;
       this.setData({

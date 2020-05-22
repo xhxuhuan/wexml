@@ -11,7 +11,7 @@
         <view wx:if="{{hasAddress}}" class="address-list">
             <view>{{address.name}}</view>
             <view>{{address.phone}}</view>
-            <view>{{address.detail}}</view>
+            <view>{{address.publicAddress + address.detail}}</view>
         </view>
     </view>
     <view class="orders-box">

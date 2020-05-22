@@ -34,9 +34,20 @@
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "page/component/address",
+					"pathName": "page/component/address/address",
+					"scene": null
+				}
+			]
 		}
 	}
 }

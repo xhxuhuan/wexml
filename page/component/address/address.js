@@ -1,39 +1,63 @@
 // page/component/new-pages/user/address/address.js
-Page({
+Component({
   data:{
-    address:{
-      name:'',
-      phone:'',
-      detail:''
-    }
+    name:'',
+    phone:'',
+    detail:'',
+    publicAddress: ''
   },
-  onLoad(){
-    var self = this;
-    
-    wx.getStorage({
-      key: 'address',
-      success: function(res){
-        self.setData({
-          address : res.data
+  methods: {
+    onLoad(){
+      var self = this;
+    },
+    formSubmit(){
+      console.log(this.data)
+      if (this.data.name && this.data.phone && this.data.detail && this.data.publicAddress){
+        wx.setStorage({
+          key: 'address',
+          data: {
+            name:this.data.name,
+            phone:this.data.phone,
+            detail:this.data.detail,
+            publicAddress:this.data.publicAddress
+          },
+          success(){
+            wx.navigateBack();
+          }
+        })
+      }else{
+        wx.showModal({
+          title:'提示',
+          content:'请填写完整资料',
+          showCancel:false
         })
       }
-    })
-  },
-  formSubmit(e){
-    const value = e.detail.value;
-    if (value.name && value.phone && value.detail){
-      wx.setStorage({
-        key: 'address',
-        data: value,
-        success(){
-          wx.navigateBack();
+    },
+    getLocation() {
+      let self =this
+      wx.getLocation({
+        type: 'wgs84',
+        success: (res)=> {
+          console.log(res)
+          let locationDate = res
+          wx.chooseLocation({
+            latitude: locationDate.latitude,
+            longitude: locationDate.longitude,
+            success: (response) => {
+              console.log(response)
+              self.setData({publicAddress : response.address + response.name})
+            }
+          })
+        },
+        fail: (res)=> {
+          console.log(res)
         }
       })
-    }else{
-      wx.showModal({
-        title:'提示',
-        content:'请填写完整资料',
-        showCancel:false
+    },
+    bindValue(e) {
+      let key = e.target.dataset.name
+      this.setData({
+        [key] : e.detail.value
       })
     }
   }

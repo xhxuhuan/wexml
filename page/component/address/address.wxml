@@ -1,9 +1,13 @@
 <view class="main">
     <view class="form-box">
         <form bindsubmit="formSubmit">
-            <input value="{{address.name}}" name="name" placeholder="姓名"/>
-            <input type="number" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <input name="detail" value="{{address.detail}}" placeholder="详细地址"/>
+            <input value="{{name}}" bindinput="bindValue" data-name="name" placeholder="姓名"/>
+            <input type="number" bindinput="bindValue" data-name="phone" value="{{phone}}" placeholder="电话号码"/>
+            <view class="dingwei">
+                <icon class="weui-icon-search_in-box search-icon" bind:tap="getLocation" type="search" size="14"></icon>
+                <input data-name="publicAddress" bindinput="bindValue" value="{{publicAddress}}" placeholder="地址"/>
+            </view>
+            <input data-name="detail" bindinput="bindValue" value="{{detail}}" placeholder="详细地址"/>
             <button form-type="submit">保存</button>
         </form>
     </view>
